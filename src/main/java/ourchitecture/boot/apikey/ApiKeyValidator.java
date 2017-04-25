@@ -33,10 +33,13 @@ public class ApiKeyValidator {
     
 	public String validateRequestApiKey(final String apiKey) {
 		
+		log.debug("[ApiKeyValidator] validateRequestApiKey()");
+		
 		if (this.isEnabled()) {
+			log.debug("[ApiKeyValidator] API Key Enabled");
 			
 			if (apiKey == null || apiKey.equals("")) {
-				log.warn("Missing API Key HTTP Header");
+				log.warn("[ApiKeyValidator] Missing API Key HTTP Header");
 				return this.apiKeyRequiredError;
 			}
 			
@@ -53,7 +56,7 @@ public class ApiKeyValidator {
 
 					log.info("");
 					log.info("");
-					log.info("  API Key Secret was not set. Setting to: " + generatedSecret);
+					log.info("[ApiKeyValidator] API Key Secret was not set. Setting to: " + generatedSecret);
 					log.info("");
 					log.info("");
                     
@@ -61,12 +64,12 @@ public class ApiKeyValidator {
 				}
 				
 				if (!apiKeyVerifier.isValid(this.properties.getSecret())) {
-					log.warn("Invalid API Key Macaroon: " + apiKey);
+					log.warn("[ApiKeyValidator] Invalid API Key Macaroon: " + apiKey);
 					
 					return this.invalidApiKeyError;
 				}
 			} catch (Exception macaroonException) {
-				log.error("API Key Macaroon Error (" + apiKey + "): " + macaroonException.getMessage());
+				log.error("[ApiKeyValidator] API Key Macaroon Error (" + apiKey + "): " + macaroonException.getMessage());
 				
 				return this.unexpectedApiKeyError;
 			}

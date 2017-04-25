@@ -37,10 +37,10 @@ public class ApiKeyFilter implements Filter {
 			final FilterChain chain)
 			throws IOException, ServletException {
         
-		log.debug('[ApiKeyFilter] doFilter()');
+		log.debug("[ApiKeyFilter] doFilter()");
 
 		if (!this.validator.isEnabled()) {
-			log.debug('[ApiKeyFilter] API Key is disabled');
+			log.debug("[ApiKeyFilter] API Key is disabled");
 			chain.doFilter(request, response);
 			return;
 		}
@@ -50,7 +50,7 @@ public class ApiKeyFilter implements Filter {
 		String apiKeyError = this.validator.validateRequestApiKey(apiKey);
 		
 		if (apiKeyError == null) {
-			log.debug('[ApiKeyFilter] API Key is valid');
+			log.debug("[ApiKeyFilter] API Key is valid");
 			chain.doFilter(request, response);
 			return;
 		}

@@ -6,7 +6,8 @@
 	
 	<groupId>ourchitecture</groupId>
 	<artifactId>spring-boot-apikey-security</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<!--<version>0.0.3-SNAPSHOT</version>-->
+	<version>0.1-RELEASE</version>
 
 	<name>ourchitecture-spring-boot-apikey-security</name>
 	<url>https://github.com/ourchitecture/spring-boot-apikey-security</url>

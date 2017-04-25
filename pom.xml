@@ -2,11 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<packaging>jar</packaging>
+	
 	<groupId>ourchitecture</groupId>
 	<artifactId>spring-boot-apikey-security</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>Spring Boot Auto-Configuration :: API Key Security Auto-Configuration</name>
+
+	<name>ourchitecture-spring-boot-apikey-security</name>
+	<url>https://github.com/ourchitecture/spring-boot-apikey-security</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -64,6 +67,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-milestones</id>
@@ -75,4 +79,24 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<build>
+		<extensions>
+			<extension>
+			<groupId>io.packagecloud.maven.wagon</groupId>
+			<artifactId>maven-packagecloud-wagon</artifactId>
+			<version>0.0.4</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>packagecloud-ourchitecture</id>
+			<url>packagecloud+https://packagecloud.io/ourchitecture/maven/ourchitecture-spring-boot-apikey-security</url>
+		</repository>
+		<snapshotRepository>
+			<id>packagecloud-ourchitecture</id>
+			<url>packagecloud+https://packagecloud.io/ourchitecture/maven/ourchitecture-spring-boot-apikey-security</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
